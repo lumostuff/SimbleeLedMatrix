@@ -333,7 +333,7 @@ uint16_t partyNoise() {
 
 uint16_t fireNoise() {
   noisespeedx = 0;
-  noisespeedy = -24;
+  noisespeedy = 24;
   noisespeedz = 8;
   noisescale = 50;
   colorLoop = 0;
