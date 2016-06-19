@@ -17,13 +17,6 @@
 //             This is a slightly more advanced technique, and
 //             it REQUIRES SPECIAL ADDITIONAL setup, described below.
 
-
-// Params for width and height
-const uint8_t kMatrixWidth = 16;
-const uint8_t kMatrixHeight = 16;
-
-// Param for different pixel layouts
-const bool    kMatrixSerpentineLayout = true;
 // Set 'kMatrixSerpentineLayout' to false if your pixels are
 // laid out all running the same way, like this:
 //

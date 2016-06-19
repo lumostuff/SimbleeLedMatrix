@@ -1,5 +1,5 @@
 /*
- * SimbleeLed: https://github.com/lumostuff/SimbleeLed
+ * SimbleeLedMatrix: https://github.com/lumostuff/SimbleeLedMatrix
  * Copyright (C) 2016 Jason Coon & Jon Richings, LumoStuff
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,11 +22,18 @@
 #include "Palettes.h"
 #include "SpiralOut.h"
 
+// Params for width and height
+const uint8_t kMatrixWidth = 16;
+const uint8_t kMatrixHeight = 16;
+
+// Param for different pixel layouts
+const bool    kMatrixSerpentineLayout = false;
+
 #define DATA_PIN    5
 #define CLOCK_PIN   4
 #define LED_TYPE    APA102
 #define COLOR_ORDER BGR // RGB
-#define NUM_LEDS    256
+#define NUM_LEDS    kMatrixWidth * kMatrixHeight
 
 // ten seconds per color palette makes a good demo
 // 20-120 is better for deployment

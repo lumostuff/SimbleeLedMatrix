@@ -221,8 +221,8 @@ void landscape() {
   noisescale = 120;
   colorLoop = 0;
   hueReduce = 0;
-  fillnoise8(0, 0, kMatrixHeight / 2);
-  mapNoiseToLEDsUsingPalette(ForestColors_p, 0, kMatrixHeight / 2);
+  fillnoise8(0, kMatrixHeight / 2, kMatrixHeight);
+  mapNoiseToLEDsUsingPalette(ForestColors_p, kMatrixHeight / 2, kMatrixHeight);
 
   // sky
   noisespeedx = -1;
@@ -231,8 +231,8 @@ void landscape() {
   noisescale = 60;
   colorLoop = 0;
   hueReduce = 0;
-  fillnoise8(1, kMatrixHeight / 2, kMatrixHeight);
-  mapNoiseToLEDsUsingPalette(CloudColors_p, kMatrixHeight / 2, kMatrixHeight);
+  fillnoise8(1, 0, kMatrixHeight / 2);
+  mapNoiseToLEDsUsingPalette(CloudColors_p, 0, kMatrixHeight / 2);
 
   drawHorizon();
 }
@@ -245,8 +245,8 @@ void seascape() {
   noisescale = 90;
   colorLoop = 0;
   hueReduce = 0;
-  fillnoise8(0, 0, kMatrixHeight / 2);
-  mapNoiseToLEDsUsingPalette(OceanColors_p, 0, kMatrixHeight / 2);
+  fillnoise8(0, kMatrixHeight / 2, kMatrixHeight);
+  mapNoiseToLEDsUsingPalette(OceanColors_p, kMatrixHeight / 2, kMatrixHeight);
 
   // sky
   noisespeedx = -1;
@@ -255,8 +255,8 @@ void seascape() {
   noisescale = 60;
   colorLoop = 0;
   hueReduce = 0;
-  fillnoise8(1, kMatrixHeight / 2, kMatrixHeight);
-  mapNoiseToLEDsUsingPalette(CloudColors_p, kMatrixHeight / 2, kMatrixHeight);
+  fillnoise8(1, 0, kMatrixHeight / 2);
+  mapNoiseToLEDsUsingPalette(CloudColors_p, 0, kMatrixHeight / 2);
 
   drawHorizon();
 }
