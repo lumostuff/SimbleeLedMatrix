@@ -27,7 +27,7 @@ const uint8_t kMatrixWidth = 16;
 const uint8_t kMatrixHeight = 16;
 
 // Param for different pixel layouts
-const bool    kMatrixSerpentineLayout = false;
+const bool    kMatrixSerpentineLayout = true;
 
 #define DATA_PIN    5
 #define CLOCK_PIN   4
