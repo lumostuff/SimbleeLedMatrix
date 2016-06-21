@@ -30,6 +30,8 @@ uint8_t ui_buttonJuggle;
 uint8_t ui_buttonNoise;
 uint8_t ui_buttonLandscape;
 uint8_t ui_buttonSeascape;
+uint8_t ui_buttonWave;
+
 uint8_t ui_sliderBrightness;
 
 void patternSelectorScreen() {
@@ -68,7 +70,7 @@ void patternSelectorScreen() {
 
   y += height;
   ui_buttonSeascape           = SimbleeForMobile.drawButton(margin, y, width, "Seascape");
-  SimbleeForMobile.drawButton(margin * 2 + width, y, width, "");
+  ui_buttonWave               = SimbleeForMobile.drawButton(margin * 2 + width, y, width, "Wave");
 
   y += height;
   SimbleeForMobile.drawButton(margin, y, width, "");
@@ -131,5 +133,8 @@ void handlePatternScreenEvents(event_t &event) {
   }
   else if (event.id == ui_buttonSeascape) {
     currentPatternIndex = 10;
+  }
+  else if (event.id == ui_buttonWave) {
+    currentPatternIndex = 11;
   }
 }

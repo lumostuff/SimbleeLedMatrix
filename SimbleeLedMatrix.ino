@@ -26,9 +26,6 @@
 const uint8_t kMatrixWidth = 16;
 const uint8_t kMatrixHeight = 16;
 
-// Param for different pixel layouts
-const bool    kMatrixSerpentineLayout = true;
-
 #define DATA_PIN    5
 #define CLOCK_PIN   4
 #define LED_TYPE    APA102
@@ -37,7 +34,7 @@ const bool    kMatrixSerpentineLayout = true;
 
 // ten seconds per color palette makes a good demo
 // 20-120 is better for deployment
-#define SECONDS_PER_PALETTE 5
+#define SECONDS_PER_PALETTE 1
 
 #define ARRAY_SIZE(A) (sizeof(A) / sizeof((A)[0]))
 
@@ -45,7 +42,7 @@ FASTLED_USING_NAMESPACE
 
 CRGB leds[NUM_LEDS];
 
-uint8_t brightness = 32;
+uint8_t brightness = 16;
 
 CRGB solidColor = CRGB(0, 0, 255);
 
@@ -67,6 +64,7 @@ CRGBPalette16 currentPalette = palettes[0];
 #include "Lightning.h"
 #include "FastLedDemos.h"
 #include "Noise.h"
+#include "Wave.h"
 
 // List of patterns to cycle through. Each is defined as a separate function below.
 typedef void (*SimplePatternList[])();
@@ -83,11 +81,12 @@ SimplePatternList patterns = {
   currentPaletteNoise,
   landscape,
   seascape,
+  wave,
   showSolidColor,
   off,
 };
 
-uint8_t currentPatternIndex = 0;
+uint8_t currentPatternIndex = 11;
 uint8_t patternCount = ARRAY_SIZE(patterns);
 
 void setup() {
@@ -113,6 +112,7 @@ void loop() {
 
 //  EVERY_N_SECONDS(SECONDS_PER_PALETTE) {
 //    currentGradientPaletteIndex = addmod8(currentGradientPaletteIndex, 1, gradientPaletteCount);
+//
 //    targetGradientPalette = gradientPalettes[currentGradientPaletteIndex];
 //    Serial.print("currentGradientPaletteIndex: ");
 //    Serial.println(currentGradientPaletteIndex);
@@ -137,6 +137,12 @@ void showSolidColor() {
 
 void off() {
   fill_solid(leds, NUM_LEDS, CRGB::Black);
+}
+
+void dimAll(byte value) {
+  for (int i = 0; i < NUM_LEDS; i++) {
+    leds[i].nscale8(value);
+  }
 }
 
 // Simblee UI screens

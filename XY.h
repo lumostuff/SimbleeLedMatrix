@@ -68,8 +68,13 @@
 //
 //      }
 //    }
-//
-//
+
+const uint8_t maxX = kMatrixWidth - 1;
+const uint8_t maxY = kMatrixHeight - 1;
+
+// Param for different pixel layouts
+const bool    kMatrixSerpentineLayout = true;
+
 uint16_t XY( uint8_t x, uint8_t y)
 {
   uint16_t i;
