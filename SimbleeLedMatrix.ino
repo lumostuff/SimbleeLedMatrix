@@ -60,6 +60,20 @@ int currentPaletteIndex = 0;
 CRGBPalette16 currentPalette = palettes[0];
 
 #include "XY.h"
+
+void showSolidColor() {
+  fill_solid(leds, NUM_LEDS, solidColor);
+}
+
+void off() {
+  fill_solid(leds, NUM_LEDS, CRGB::Black);
+}
+
+void dimAll(byte value) {
+  for (int i = 0; i < NUM_LEDS; i++) {
+    leds[i].nscale8(value);
+  }
+}
 #include "ColorWaves.h"
 #include "Lightning.h"
 #include "FastLedDemos.h"
@@ -91,7 +105,7 @@ uint8_t patternCount = ARRAY_SIZE(patterns);
 
 void setup() {
   Serial.begin(57600);
-  delay(500); // 3 second delay for recovery
+//  delay(500); // 3 second delay for recovery
 
   SimbleeForMobile.deviceName = "LumoStuff";
   SimbleeForMobile.advertisementData = "Strip";
@@ -129,20 +143,6 @@ void loop() {
   patterns[currentPatternIndex]();
 
   FastLED.show();
-}
-
-void showSolidColor() {
-  fill_solid(leds, NUM_LEDS, solidColor);
-}
-
-void off() {
-  fill_solid(leds, NUM_LEDS, CRGB::Black);
-}
-
-void dimAll(byte value) {
-  for (int i = 0; i < NUM_LEDS; i++) {
-    leds[i].nscale8(value);
-  }
 }
 
 // Simblee UI screens
